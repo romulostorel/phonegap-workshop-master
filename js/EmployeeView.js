@@ -19,13 +19,7 @@ var EmployeeView = function(employee){
 				$('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
 			},
 			function() {
-				if(navigator.notification){
-					navigator.notification.alert('Error getting location', null, 'Info', 'OK');
-					console.log('Using navigator.notification alert function');
-				}else{
-					alert("Info: Error getting location");
-					console.log('Using the default browser alert function');
-				}
+				app.showAlert("Error getting location", "Error");
 			},
 			{ enableHighAccuracy: true });
 		return false;
