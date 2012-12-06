@@ -25,7 +25,8 @@ var EmployeeView = function(employee){
 					alert("Info: Error getting location");
 					console.log('Using the default browser alert function');
 				}
-			});
+			},
+			{ enableHighAccuracy: true });
 		return false;
 	};	
 
