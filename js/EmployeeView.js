@@ -18,10 +18,18 @@ var EmployeeView = function(employee){
 				$('.location', this.el).html(position.coords.latitude + ',' + position.coords.longitude);
 			},
 			function() {
-				alert('Error getting location');
+				//alert('Error getting location');
+
+				if(navigator.notification){
+					navigator.notification.alert('Error getting location', null, 'Info', 'OK');
+					console.log('Using navigator.notification alert function');
+				}else{
+					alert("Info: Error getting location");
+					console.log('Using the default browser alert function');
+				}
 			});
 		return false;
-	};
+	};	
 
 	this.initialize();
 }
